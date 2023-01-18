@@ -63,7 +63,19 @@ public class MainActivity extends AppCompatActivity {
                             gameState[winningPosition[0]] != 2
             ) {
 
-                Toast.makeText(this, "Someone has won! Congrats!", Toast.LENGTH_SHORT).show();
+                String winner = "";
+
+                if (activePlayer == 1) {
+
+                    winner = "Yellow";
+
+                } else {
+
+                    winner = "Red";
+
+                }
+
+                Toast.makeText(this, winner + " has won! Congrats!", Toast.LENGTH_SHORT).show();
             }
         }
 
