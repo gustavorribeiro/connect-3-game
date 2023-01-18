@@ -35,50 +35,52 @@ public class MainActivity extends AppCompatActivity {
 
         int tappedCounter = Integer.parseInt(counter.getTag().toString());
 
-        gameState[tappedCounter] = activePlayer;
+        if (gameState[tappedCounter] == 2) {
 
-        counter.setTranslationY(-1500);
+            gameState[tappedCounter] = activePlayer;
 
-        if (activePlayer == 0) {
+            counter.setTranslationY(-1500);
 
-            counter.setImageResource(R.drawable.yellow);
+            if (activePlayer == 0) {
 
-            activePlayer = 1;
-        } else {
+                counter.setImageResource(R.drawable.yellow);
 
-            counter.setImageResource(R.drawable.red);
+                activePlayer = 1;
+            } else {
 
-            activePlayer = 0;
-        }
+                counter.setImageResource(R.drawable.red);
 
-        counter.animate().translationYBy(1500).rotation(3600).setDuration(300);
+                activePlayer = 0;
+            }
 
-        for (int[] winningPosition : winningPositions) {
+            counter.animate().translationYBy(1500).rotation(3600).setDuration(300);
 
-            if (
-                    gameState[winningPosition[0]] == gameState[winningPosition[1]]
-                            &&
-                            gameState[winningPosition[1]] == gameState[winningPosition[2]]
-                            &&
-                            gameState[winningPosition[0]] != 2
-            ) {
+            for (int[] winningPosition : winningPositions) {
 
-                String winner = "";
+                if (
+                        gameState[winningPosition[0]] == gameState[winningPosition[1]]
+                                &&
+                                gameState[winningPosition[1]] == gameState[winningPosition[2]]
+                                &&
+                                gameState[winningPosition[0]] != 2
+                ) {
 
-                if (activePlayer == 1) {
+                    String winner = "";
 
-                    winner = "Yellow";
+                    if (activePlayer == 1) {
 
-                } else {
+                        winner = "Yellow";
 
-                    winner = "Red";
+                    } else {
 
+                        winner = "Red";
+
+                    }
+
+                    Toast.makeText(this, winner + " has won! Congrats!", Toast.LENGTH_SHORT).show();
                 }
-
-                Toast.makeText(this, winner + " has won! Congrats!", Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 
     @Override
