@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -81,10 +83,32 @@ public class MainActivity extends AppCompatActivity {
 
                     }
 
-                    Toast.makeText(this, winner + " has won! Congrats!", Toast.LENGTH_SHORT).show();
+                    Button playAgainButton = (Button) findViewById(R.id.playAgainButton);
+
+                    TextView winnerTextView = (TextView) findViewById(R.id.winnerTextView);
+
+                    winnerTextView.setText(winner + " has won! Congrats!");
+
+                    playAgainButton.setVisibility(View.VISIBLE);
+
+                    winnerTextView.setVisibility(View.VISIBLE);
+
                 }
             }
         }
+    }
+
+    public void playAgain (View view) {
+
+        Button playAgainButton = (Button) findViewById(R.id.playAgainButton);
+
+        TextView winnerTextView = (TextView) findViewById(R.id.winnerTextView);
+
+        playAgainButton.setVisibility(View.INVISIBLE);
+
+        winnerTextView.setVisibility(View.INVISIBLE);
+
+
     }
 
     @Override
