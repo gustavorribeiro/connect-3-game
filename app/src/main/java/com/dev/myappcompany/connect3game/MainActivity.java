@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     int activePlayer = 0;
 
+    boolean gameActive = true;
+
     public void dropIn(View view) {
 
         ImageView counter = (ImageView) view;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         int tappedCounter = Integer.parseInt(counter.getTag().toString());
 
-        if (gameState[tappedCounter] == 2) {
+        if (gameState[tappedCounter] == 2 && gameActive) {
 
             gameState[tappedCounter] = activePlayer;
 
@@ -64,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
                                 &&
                                 gameState[winningPosition[0]] != 2
                 ) {
+
+                    gameActive = false;
 
                     String winner = "";
 
