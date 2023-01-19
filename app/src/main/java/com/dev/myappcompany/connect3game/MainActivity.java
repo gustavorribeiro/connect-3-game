@@ -6,10 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridLayout;
+import androidx.gridlayout.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         GridLayout gridLayout = (GridLayout) findViewById(R.id.gridLayout);
 
-        for (int i = 0; i < gridLayout.getChildCount(); i++) {
+        for (int i =0; i<gridLayout.getChildCount(); i++) {
 
             ImageView counter = (ImageView) gridLayout.getChildAt(i);
 
@@ -119,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        for (int i = 0; i < gameState.length; i++) {
+        for (int i=0; i<gameState.length; i++) {
 
             gameState[i] = 2;
 
